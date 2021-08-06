@@ -11,7 +11,7 @@ function click_gtdb_button(clicked_id) {
 
     let gtdb_onebyone = document.querySelector('#gtdb_onebyone_wrap').classList.contains('gtdb_active')
     let gtdb_loop_wrap = document.querySelector('#gtdb_loop_wrap').classList.contains('gtdb_active')
-    console.log(clicked_id.target.innerHTML)
+    // console.log(clicked_id.target.innerHTML)
     // const soundToPlay = document.querySelector(`#${clicked_id.target.id}_sound`);
     let htz = document.querySelector('.gtdb_htz_btn.gtdb_active').textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
     let soundTypeSelect = document.querySelector('#gtdb_sound_select')
@@ -34,7 +34,7 @@ function click_gtdb_button(clicked_id) {
             var gtdb_play_note = document.querySelectorAll('.gtdb_play_note');
             // console.log(audios)
             if (soundToPlay) {
-                console.log(clicked_id.target)
+                // console.log(clicked_id.target)
                 clicked_id.target.classList.add('bugger')
                 soundToPlay.load()
                 clicked_id.target.classList.remove('bugger')
@@ -102,7 +102,7 @@ function onebyonePlayback(event) {
 
 function loopPlayback(event) {
     var audioLoops = document.querySelectorAll('audio');
-    console.log(audioLoops);
+    // console.log(audioLoops);
     if (event.target.classList.contains('gtdb_active')) {
 
         event.target.classList.remove('gtdb_active')
