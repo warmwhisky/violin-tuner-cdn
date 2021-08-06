@@ -1,0 +1,148 @@
+/**
+ * @version 0.1
+ * @author Bern Taylor
+ */
+#gtdb_tuner_wrapper {
+    font-family: sans-serif;
+    height: 123px;
+    /*max-width: 450px !important;*/
+}
+
+.gtdb_play_note_container {
+    padding: 0;
+    margin: 0 0 2px 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    justify-content: space-between;
+    line-height: 30px;
+}
+
+.gtdb_play_note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    background: black;
+    color: white;
+    font-weight: bold;
+    font-size: 5em;
+    text-align: center;
+    flex: 1 0 auto;
+    height: 79px;
+    cursor: pointer;
+}
+
+.gtdb_play_note:before {
+    content: '';
+    float: left;
+    padding-top: 100%;
+}
+.gtdb_gap {
+    width: 2px;
+}
+.gtdb_play_note.gtdb_active {
+    background-color: green;
+}
+
+div#gtdb_tuner_buttons_footer {
+    font-size: 10px;
+}
+
+.gtdb_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    margin: 0 2px 2px 0;
+}
+
+.gtdb_btn_plug {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 121px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    margin: 0 2px 2px 0;
+    font-size: 10px;
+}
+
+div.gtdb_btn.gtdb_active {
+    background-color: green;
+}
+
+div#tuner_buttons_footer {
+    display: flex;
+    justify-content: start;
+}
+span.gtdb_stop {
+    background-color: white;
+    width: 17px;
+    height: 18px;
+}
+.gtdb_loop_btn {
+    transform: rotate(-90deg);
+    font-size: 28px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.gtdb_onebyone_btn {
+    font-size: 28px;
+    font-weight: bold;
+    user-select: none;
+}
+
+/*div#VIOLIN_G {*/
+/*    margin-right: 1px;*/
+/*}*/
+
+/*div#VIOLIN_D {*/
+/*    margin-left: 1px;*/
+/*    margin-right: 1px;*/
+/*}*/
+
+/*div#VIOLIN_A {*/
+/*    margin-left: 1px;*/
+/*    margin-right: 1px;*/
+/*}*/
+
+/*div#VIOLIN_E {*/
+/*    margin-left: 1px;*/
+/*}*/
+
+div#sounds_switch_wrap {
+    display: flex;
+    justify-content: start;
+}
+
+.gtdb_sound_switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    white-space: nowrap;
+}
+select#gtdb_sound_select {
+    margin-bottom: 2px;
+    border: 4px solid black;
+    font-size: 20px;
+    font-weight: bold;
+}
+div#gtdb_htz432_wrap {
+    margin-left: -2px;
+}
+.gtdb_htz_btn  {
+    user-select: none;
+}
