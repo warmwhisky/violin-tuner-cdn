@@ -1,76 +1,145 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Guitar Tunings Database Violin Tuner</title>
-  <link href="/css/violin-tuner.css" rel="stylesheet">
-  <script src="/js/violin-tuner.js"></script>
-</head>
+<body style="padding: 0!important;margin: 0!important;">
+<link href="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/css/violin-tuner.css" rel="stylesheet">
+<audio id="VIOLIN_G_sound_pizzicato2_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato2/440/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_pizzicato2_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato2/440/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_pizzicato2_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato2/440/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_pizzicato2_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato2/440/E.mp3" type="audio/mp3">
+</audio>
 
-<body>
+<audio id="VIOLIN_G_sound_pizzicato2_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato2/432/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_pizzicato2_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato2/432/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_pizzicato2_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato2/432/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_pizzicato2_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato2/432/E.mp3" type="audio/mp3">
+</audio>
 
-<audio id="VIOLIN_G_sound_pizzicato2_440" loop><source src="/sounds/violin/pizzicato2/440/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_pizzicato2_440" loop><source src="/sounds/violin/pizzicato2/440/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_pizzicato2_440" loop><source src="/sounds/violin/pizzicato2/440/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_pizzicato2_440" loop><source src="/sounds/violin/pizzicato2/440/E.mp3" type="audio/mp3"></audio>
+<audio id="VIOLIN_G_sound_sine_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/sine/440/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_sine_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/sine/440/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_sine_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/sine/440/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_sine_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/sine/440/E.mp3" type="audio/mp3">
+</audio>
 
-<audio id="VIOLIN_G_sound_pizzicato2_432" loop><source src="/sounds/violin/pizzicato2/432/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_pizzicato2_432" loop><source src="/sounds/violin/pizzicato2/432/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_pizzicato2_432" loop><source src="/sounds/violin/pizzicato2/432/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_pizzicato2_432" loop><source src="/sounds/violin/pizzicato2/432/E.mp3" type="audio/mp3"></audio>
+<audio id="VIOLIN_G_sound_sine_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/sine/432/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_sine_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/sine/432/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_sine_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/sine/432/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_sine_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/sine/432/E.mp3" type="audio/mp3">
+</audio>
 
-<audio id="VIOLIN_G_sound_sine_440" loop><source src="/sounds/violin/sine/440/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_sine_440" loop><source src="/sounds/violin/sine/440/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_sine_440" loop><source src="/sounds/violin/sine/440/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_sine_440" loop><source src="/sounds/violin/sine/440/E.mp3" type="audio/mp3"></audio>
+<audio id="VIOLIN_G_sound_pizzicato_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato/440/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_pizzicato_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato/440/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_pizzicato_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato/440/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_pizzicato_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato/440/E.mp3" type="audio/mp3">
+</audio>
 
-<audio id="VIOLIN_G_sound_sine_432" loop><source src="/sounds/violin/sine/432/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_sine_432" loop><source src="/sounds/violin/sine/432/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_sine_432" loop><source src="/sounds/violin/sine/432/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_sine_432" loop><source src="/sounds/violin/sine/432/E.mp3" type="audio/mp3"></audio>
+<audio id="VIOLIN_G_sound_pizzicato_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato/432/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_pizzicato_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato/432/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_pizzicato_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato/432/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_pizzicato_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato/432/E.mp3" type="audio/mp3">
+</audio>
 
-<audio id="VIOLIN_G_sound_pizzicato_440" loop><source src="/sounds/violin/pizzicato/440/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_pizzicato_440" loop><source src="/sounds/violin/pizzicato/440/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_pizzicato_440" loop><source src="/sounds/violin/pizzicato/440/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_pizzicato_440" loop><source src="/sounds/violin/pizzicato/440/E.mp3" type="audio/mp3"></audio>
+<audio id="VIOLIN_G_sound_legato_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato2/440/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_legato_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato2/440/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_legato_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato2/440/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_legato_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato2/440/E.mp3" type="audio/mp3">
+</audio>
 
-<audio id="VIOLIN_G_sound_pizzicato_432" loop><source src="/sounds/violin/pizzicato/432/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_pizzicato_432" loop><source src="/sounds/violin/pizzicato/432/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_pizzicato_432" loop><source src="/sounds/violin/pizzicato/432/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_pizzicato_432" loop><source src="/sounds/violin/pizzicato/432/E.mp3" type="audio/mp3"></audio>
+<audio id="VIOLIN_G_sound_legato_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato2/432/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_legato_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato2/432/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_legato_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato2/432/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_legato_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato2/432/E.mp3" type="audio/mp3">
+</audio>
 
-<audio id="VIOLIN_G_sound_legato_440" loop><source src="/sounds/violin/legato2/440/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_legato_440" loop><source src="/sounds/violin/legato2/440/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_legato_440" loop><source src="/sounds/violin/legato2/440/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_legato_440" loop><source src="/sounds/violin/legato2/440/E.mp3" type="audio/mp3"></audio>
+<audio id="VIOLIN_G_sound_section_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato/440/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_section_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato/440/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_section_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato/440/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_section_440" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato/440/E.mp3" type="audio/mp3">
+</audio>
 
-<audio id="VIOLIN_G_sound_legato_432" loop><source src="/sounds/violin/legato2/432/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_legato_432" loop><source src="/sounds/violin/legato2/432/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_legato_432" loop><source src="/sounds/violin/legato2/432/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_legato_432" loop><source src="/sounds/violin/legato2/432/E.mp3" type="audio/mp3"></audio>
-
-<audio id="VIOLIN_G_sound_section_440" loop><source src="/sounds/violin/legato/440/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_section_440" loop><source src="/sounds/violin/legato/440/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_section_440" loop><source src="/sounds/violin/legato/440/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_section_440" loop><source src="/sounds/violin/legato/440/E.mp3" type="audio/mp3"></audio>
-
-<audio id="VIOLIN_G_sound_section_432" loop><source src="/sounds/violin/legato/432/G.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_D_sound_section_432" loop><source src="/sounds/violin/legato/432/D.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_A_sound_section_432" loop><source src="/sounds/violin/legato/432/A.mp3" type="audio/mp3"></audio>
-<audio id="VIOLIN_E_sound_section_432" loop><source src="/sounds/violin/legato/432/E.mp3" type="audio/mp3"></audio>
+<audio id="VIOLIN_G_sound_section_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato/432/G.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_D_sound_section_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato/432/D.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_A_sound_section_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato/432/A.mp3" type="audio/mp3">
+</audio>
+<audio id="VIOLIN_E_sound_section_432" loop>
+  <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/legato/432/E.mp3" type="audio/mp3">
+</audio>
 
 <div id="gtdb_tuner_wrapper">
 
   <div id="gtdb_tuner_buttons" class="gtdb_play_note_container">
-    <div class="gtdb_play_note" id="VIOLIN_G_pizzicato2_440"  onClick="click_gtdb_button(event)">G</div>
+    <div class="gtdb_play_note" id="VIOLIN_G_pizzicato2_440" onClick="click_gtdb_button(event)">G</div>
     <div class="gtdb_gap"></div>
-    <div class="gtdb_play_note" id="VIOLIN_D_pizzicato2_440"  onClick="click_gtdb_button(event)">D</div>
+    <div class="gtdb_play_note" id="VIOLIN_D_pizzicato2_440" onClick="click_gtdb_button(event)">D</div>
     <div class="gtdb_gap"></div>
-    <div class="gtdb_play_note" id="VIOLIN_A_pizzicato2_440"  onClick="click_gtdb_button(event)">A</div>
+    <div class="gtdb_play_note" id="VIOLIN_A_pizzicato2_440" onClick="click_gtdb_button(event)">A</div>
     <div class="gtdb_gap"></div>
-    <div class="gtdb_play_note" id="VIOLIN_E_pizzicato2_440"  onClick="click_gtdb_button(event)">E</div>
+    <div class="gtdb_play_note" id="VIOLIN_E_pizzicato2_440" onClick="click_gtdb_button(event)">E</div>
   </div>
   <div id="tuner_buttons_footer">
     <div id="gtdb_stop_wrap" class="gtdb_btn gtdb_stop_btn" onclick="stopPlayback(event)">
@@ -94,5 +163,5 @@
     </a>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/js/violin-tuner.js"></script>
 </body>
-</html>

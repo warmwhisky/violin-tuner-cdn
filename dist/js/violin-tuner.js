@@ -134,6 +134,7 @@ function returnHtz() {
     }
 }
 function switchHtz(event) {
+    stopPlayback(event)
     document.querySelector('#gtdb_htz432_wrap').classList.toggle('gtdb_active')
     document.querySelector('#gtdb_htz440_wrap').classList.toggle('gtdb_active')
     let htzBtns = document.querySelectorAll('.gtdb_htz_btn')
@@ -165,3 +166,30 @@ sound_types += `<option class="gtdb_sound_switch">Section</option>`;
 sound_types += `<option class="gtdb_sound_switch">Sine</option>`;
 let gtdb_sound_select = `<select id="gtdb_sound_select" onchange="stopPlayback(event)">${sound_types}</select>`;
 document.querySelector('#sounds_switch_wrap').innerHTML = gtdb_sound_select;
+
+
+// Get the modal
+var gtdb_modal_modal = document.getElementById("gtdb_modal_myModal");
+
+// Get the button that opens the modal
+var gtdb_modal_btn = document.getElementById("gtdb_modal_myBtn");
+
+// Get the <span> element that closes the modal
+var gtdb_modal_span = document.getElementsByClassName("gtdb_modal_close")[0];
+
+// When the user clicks on the button, open the modal
+gtdb_modal_btn.onclick = function() {
+    gtdb_modal_modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+gtdb_modal_span.onclick = function() {
+    gtdb_modal_modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == gtdb_modal_modal) {
+        gtdb_modal_modal.style.display = "none";
+    }
+}
