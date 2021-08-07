@@ -7,6 +7,7 @@
 // https://github.com/warmwhisky/violin-tuner-cdn
 
 var soundToPlay = false;
+let MASTER_VOLUME = 0.8;
 function click_gtdb_button(clicked_id) {
 
     let gtdb_onebyone = document.querySelector('#gtdb_onebyone_wrap').classList.contains('gtdb_active')
@@ -27,7 +28,7 @@ function click_gtdb_button(clicked_id) {
         if (!gtdb_onebyone) {
             if (soundToPlay) {
                 soundToPlay.load()
-                soundToPlay.volume = 0.8;
+                soundToPlay.volume = MASTER_VOLUME;
                 soundToPlay.play();
             }
         } else {
@@ -39,7 +40,7 @@ function click_gtdb_button(clicked_id) {
                 soundToPlay.load()
                 clicked_id.target.classList.remove('bugger')
                 soundToPlay.loop = gtdb_loop_wrap;
-                soundToPlay.volume = 0.8;
+                soundToPlay.volume = MASTER_VOLUME;
                 soundToPlay.play();
             }
 
