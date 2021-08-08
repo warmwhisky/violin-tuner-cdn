@@ -1,5 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#FFFFFF"/>
+  <meta name="description" content="Author: Guitar Tunings Database. Violin Tuner to embed on any website for free.">
+  <title>Guitar Tunings Database Violin Tuner</title>
+</head>
 <body style="padding: 0!important;margin: 0!important;">
 <link href="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/css/violin-tuner.min.css" rel="stylesheet">
+<!--<link href="/css/violin-tuner.css" rel="stylesheet">-->
 <audio id="VIOLIN_G_sound_pizzicato2_440" loop preload="none">
   <source src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/sounds/violin/pizzicato2/440/G.mp3" type="audio/mp3">
 </audio>
@@ -131,7 +141,7 @@
 </audio>
 
 <div id="gtdb_tuner_wrapper">
-
+  <h1 style="position: absolute;color: #0c548000;z-index: -1;">Violin Tuner</h1>
   <div id="gtdb_tuner_buttons" class="gtdb_play_note_container">
     <div class="gtdb_play_note" id="VIOLIN_G_pizzicato2_440" onClick="click_gtdb_button(event)">G</div>
     <div class="gtdb_gap"></div>
@@ -164,13 +174,13 @@
     <div id="gtdb_modal_myModal" class="gtdb_modal_modal">
       <div class="gtdb_modal_modal-content">
         <span class="gtdb_modal_close">&times;</span>
-        <input type="text" onfocus="this.select()" value='<iframe width="100%" height="110px" src="https://gtdb.org/violin_tuner_embed/index.html" scrolling="no" title="Guitar Tunings Database Violin Tuner" style="padding: 0!important;border:none!important;overflow: hidden;"></iframe>' style="width: 85%;">
+        <input type="text" onfocus="this.select()" value='<iframe width="100%" height="110px" src="https://gtdb.org/violin_tuner_embed/index.html?main_colour=000000&text_colour=ffffff&active_colour=008000&default_sound=pizzicato2&htz=440" scrolling="no" title="Guitar Tunings Database Violin Tuner" style="padding: 0!important;border:none!important;overflow: hidden;"></iframe>' style="width: 85%;">
       </div>
     </div>
     <a href="https://gtdb.org/violin-tuner?type=pizzicato2&htz=440" target="_blank" title="Guitar Tunings Database Violin Tuner" class="gtdb_btn_plug" rel="external">
       GTDB
     </a>
-    <a href="https://github.com/warmwhisky/violin-tuner-cdn" class="gtdb_btn gtdb_htz_btn" style="margin-right: 0!important;" target="_blank" rel="external">
+    <a href="https://github.com/warmwhisky/violin-tuner-cdn" class="gtdb_btn gtdb_htz_btn" style="margin-right: 0!important;" target="_blank" title="View repository on Git Hub" rel="noopener">
       <svg viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 18px;height: 18px;">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g fill="#ffffff">
@@ -183,4 +193,6 @@
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/gh/warmwhisky/violin-tuner-cdn@latest/dist/js/violin-tuner.min.js"></script>
+<!--<script src="/js/violin-tuner.js"></script>-->
 </body>
+</html>

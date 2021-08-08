@@ -8,6 +8,7 @@
 
 var soundToPlay = false;
 let MASTER_VOLUME = 0.8;
+
 function click_gtdb_button(clicked_id) {
 
     let gtdb_onebyone = document.querySelector('#gtdb_onebyone_wrap').classList.contains('gtdb_active')
@@ -36,9 +37,7 @@ function click_gtdb_button(clicked_id) {
             // console.log(audios)
             if (soundToPlay) {
                 // console.log(clicked_id.target)
-                clicked_id.target.classList.add('bugger')
                 soundToPlay.load()
-                clicked_id.target.classList.remove('bugger')
                 soundToPlay.loop = gtdb_loop_wrap;
                 soundToPlay.volume = MASTER_VOLUME;
                 soundToPlay.play();
@@ -51,7 +50,7 @@ function click_gtdb_button(clicked_id) {
             // var audios = document.querySelectorAll('audio');
             var audios = document.querySelectorAll(`[id*='_sound_${soundType}']`)
             for (var i = 0, len = audios.length; i < len; i++) {
-                if(audios[i].id !== `VIOLIN_${clicked_id.target.textContent}_sound_${soundType}_${htz}`) {
+                if (audios[i].id !== `VIOLIN_${clicked_id.target.textContent}_sound_${soundType}_${htz}`) {
                     audios[i].volume = 0.01;
                     audios[i].pause();
                     audios[i].currentTime = 0;
@@ -87,7 +86,7 @@ function stopPlayback(event) {
     }
 
     var stopBtns = document.querySelectorAll('.gtdb_play_note');
-    for(i=0; i<stopBtns.length; i++) {
+    for (i = 0; i < stopBtns.length; i++) {
         stopBtns[i].classList.remove('gtdb_active');
     }
 }
@@ -125,7 +124,6 @@ function loopPlayback(event) {
 }
 
 
-
 function returnHtz() {
     let htzBtns = document.querySelectorAll('.gtdb_htz_btn')
     for (var i3 = 0, len = htzBtns.length; i3 < len; i3++) {
@@ -134,20 +132,21 @@ function returnHtz() {
         }
     }
 }
+
 function switchHtz(event) {
     stopPlayback(event)
     document.querySelector('#gtdb_htz432_wrap').classList.toggle('gtdb_active')
     document.querySelector('#gtdb_htz440_wrap').classList.toggle('gtdb_active')
     let htzBtns = document.querySelectorAll('.gtdb_htz_btn')
     for (var i3 = 0, len = htzBtns.length; i3 < len; i3++) {
-        if(htzBtns[i3].classList.contains('gtdb_active')) {
+        if (htzBtns[i3].classList.contains('gtdb_active')) {
             gtdbHTZ = htzBtns[i3].textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()
             let gtdbSource = document.getElementsByTagName('source');
             for (var i4 = 0, len4 = gtdbSource.length; i4 < len4; i4++) {
-                if(gtdbHTZ === '432') {
-                    gtdbSource[i4].src = gtdbSource[i4].src.replace('/440/','/432/')
+                if (gtdbHTZ === '432') {
+                    gtdbSource[i4].src = gtdbSource[i4].src.replace('/440/', '/432/')
                 } else {
-                    gtdbSource[i4].src = gtdbSource[i4].src.replace('/432/','/440/')
+                    gtdbSource[i4].src = gtdbSource[i4].src.replace('/432/', '/440/')
                 }
                 // console.log(gtdbSource[i4].src)
             }
@@ -160,11 +159,11 @@ function switchHtz(event) {
 
 let sound_types;
 letz = 440;
-sound_types = `<option class="gtdb_sound_switch">Pizzicato</option>`;
-sound_types += `<option class="gtdb_sound_switch" selected>Pizzicato 2</option>`;
-sound_types += `<option class="gtdb_sound_switch">Legato</option>`;
-sound_types += `<option class="gtdb_sound_switch">Section</option>`;
-sound_types += `<option class="gtdb_sound_switch">Sine</option>`;
+sound_types = `<option value="pizzicato" class="gtdb_sound_switch">Pizzicato</option>`;
+sound_types += `<option value="pizzicato2" class="gtdb_sound_switch" selected>Pizzicato 2</option>`;
+sound_types += `<option value="legato" class="gtdb_sound_switch">Legato</option>`;
+sound_types += `<option value="section" class="gtdb_sound_switch">Section</option>`;
+sound_types += `<option value="sine" class="gtdb_sound_switch">Sine</option>`;
 let gtdb_sound_select = `<select id="gtdb_sound_select" onchange="stopPlayback(event)">${sound_types}</select>`;
 document.querySelector('#sounds_switch_wrap').innerHTML = gtdb_sound_select;
 
@@ -179,18 +178,73 @@ var gtdb_modal_btn = document.getElementById("gtdb_modal_myBtn");
 var gtdb_modal_span = document.getElementsByClassName("gtdb_modal_close")[0];
 
 // When the user clicks on the button, open the modal
-gtdb_modal_btn.onclick = function() {
+gtdb_modal_btn.onclick = function () {
     gtdb_modal_modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-gtdb_modal_span.onclick = function() {
+gtdb_modal_span.onclick = function () {
     gtdb_modal_modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == gtdb_modal_modal) {
         gtdb_modal_modal.style.display = "none";
+    }
+}
+
+// get url parameters
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+if (urlParams.has('default_sound')) {
+    let gtdb_sound_select = document.querySelector('#gtdb_sound_select')
+    gtdb_sound_select.value = urlParams.get('default_sound')
+}
+if (urlParams.has('main_colour') || urlParams.has('text_colour') || urlParams.has('active_colour')) {
+
+    if (urlParams.has('main_colour')) {
+        var sheet = document.createElement('style')
+        sheet.innerHTML = `.gtdb_play_note {background-color: #${urlParams.get('main_colour')}!important;}`;
+        sheet.innerHTML += `.gtdb_btn {background-color: #${urlParams.get('main_colour')}!important;}`;
+        sheet.innerHTML += `#gtdb_sound_select {border-color: #${urlParams.get('main_colour')}!important;}`;
+        sheet.innerHTML += `.gtdb_btn_plug {background-color: #${urlParams.get('main_colour')}!important;}`;
+        document.body.appendChild(sheet);
+    }
+
+    if (urlParams.has('text_colour')) {
+        var sheet2 = document.createElement('style')
+        sheet2.innerHTML = `.gtdb_play_note {color: #${urlParams.get('text_colour')}!important;}`;
+        sheet2.innerHTML += `.gtdb_btn {color: #${urlParams.get('text_colour')}!important;}`;
+        sheet2.innerHTML += `span.gtdb_stop {background-color: #${urlParams.get('text_colour')}!important;}`;
+        sheet2.innerHTML += `.gtdb_btn_plug {color: #${urlParams.get('text_colour')}!important;}`;
+        document.body.appendChild(sheet2);
+    }
+
+    if (urlParams.has('active_colour')) {
+        var sheet3 = document.createElement('style')
+        sheet3.innerHTML = `.gtdb_play_note.gtdb_active {background-color: #${urlParams.get('active_colour')}!important;}`;
+        sheet3.innerHTML += `div.gtdb_btn.gtdb_active {background-color: #${urlParams.get('active_colour')}!important;}`;
+        document.body.appendChild(sheet3);
+    }
+
+    if (urlParams.has('htz')) {
+        let htzBtns = document.querySelectorAll('.gtdb_htz_btn')
+        for (var i3 = 0, len = htzBtns.length; i3 < len; i3++) {
+            gtdbHTZ = htzBtns[i3].textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()
+            let gtdbSource = document.getElementsByTagName('source');
+            for (var i4 = 0, len4 = gtdbSource.length; i4 < len4; i4++) {
+                if (urlParams.get('htz') == '432') {
+                    document.querySelector('#gtdb_htz432_wrap').classList.add('gtdb_active')
+                    document.querySelector('#gtdb_htz440_wrap').classList.remove('gtdb_active')
+                    gtdbSource[i4].src = gtdbSource[i4].src.replace('/440/', '/432/')
+                } else {
+                    document.querySelector('#gtdb_htz432_wrap').classList.remove('gtdb_active')
+                    document.querySelector('#gtdb_htz440_wrap').classList.add('gtdb_active')
+                    gtdbSource[i4].src = gtdbSource[i4].src.replace('/432/', '/440/')
+                }
+            }
+
+        }
     }
 }
