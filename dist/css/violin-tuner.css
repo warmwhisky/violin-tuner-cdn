@@ -2,10 +2,53 @@
  * @version 0.1
  * @author Bern Taylor
  */
+
+@media screen and (max-width: 400px) {
+
+    .gtdb_github,  #gtdb_htz432_wrap{
+        display: none!important;
+    }
+    .gtdb_btn_plug {
+        margin-right: 0!important;
+    }
+    select#gtdb_sound_select {
+        width: 51px;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 720px) {
+    .gtdb_play_note {
+        font-size: 3.5em!important;
+    }
+}
+
+@media screen and (min-width: 721px) and (max-width: 1280px) {
+    .gtdb_play_note {
+        font-size: 4em!important;
+    }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+    .gtdb_play_note {
+        font-size: 4.5em!important;
+    }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+    .gtdb_play_note {
+        font-size: 5em!important;
+    }
+}
+
+@media screen and (min-width: 1921px) {
+    .gtdb_play_note {
+        font-size: 5em!important;
+    }
+}
 #gtdb_tuner_wrapper {
     font-family: sans-serif;
     height: 110px;
-    min-width: 270px;
+    /*min-width: 270px;*/
 }
 
 .gtdb_play_note_container {
@@ -30,7 +73,7 @@
     background: black;
     color: white;
     font-weight: bold;
-    font-size: 5em;
+    font-size: 3em;
     text-align: center;
     flex: 1 0 auto;
     height: 79px;
@@ -80,6 +123,7 @@ div#gtdb_tuner_buttons_footer {
     font-weight: bold;
     text-decoration: none;
     padding-right: 0;
+    margin-left: auto;
 }
 div.gtdb_btn.gtdb_active {
     background-color: green;
@@ -91,8 +135,8 @@ div#tuner_buttons_footer {
 }
 span.gtdb_stop {
     background-color: white;
-    width: 15px;
-    height: 15px;
+    width: 11px;
+    height: 11px;
 }
 .gtdb_loop_btn {
     /*transform: rotate(-90deg);*/
@@ -102,7 +146,7 @@ span.gtdb_stop {
 }
 
 .gtdb_onebyone_btn {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
     user-select: none;
 }
@@ -160,7 +204,7 @@ div#gtdb_htz432_wrap {
 .gtdb_modal_close {
     color: #777;
     float: right;
-    font-size: 43px;
+    font-size: 29px;
     font-weight: bold;
     line-height: 21px;
 }
