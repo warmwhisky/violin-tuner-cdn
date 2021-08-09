@@ -33,7 +33,6 @@ function click_gtdb_button(clicked_id) {
         // get and play the audio
         if (!gtdb_onebyone) {
             if (soundToPlay) {
-                console.log(soundToPlay.networkState)
                 soundToPlay.load()
                 soundToPlay.volume = MASTER_VOLUME;
                 soundToPlay.play();
@@ -72,6 +71,7 @@ function click_gtdb_button(clicked_id) {
 
     }
 }
+
 function gtdbSoundLoaded(note) {
     document.querySelector(`#VIOLIN_${note}_pizzicato2_440`).innerHTML = note;
     document.querySelector(`#VIOLIN_${note}_pizzicato2_440`).classList.remove('gtdb_buffering')
@@ -86,6 +86,7 @@ function gtdbSoundLoaded(note) {
     }, 3000);
     // clicked_id.target.classList.add('gtdb_active')
 }
+
 function stopPlayback(event) {
 
     var audios = document.querySelectorAll('audio');
@@ -210,52 +211,56 @@ if (urlParams.has('default_sound')) {
     let gtdb_sound_select = document.querySelector('#gtdb_sound_select')
     gtdb_sound_select.value = urlParams.get('default_sound')
 }
-if (urlParams.has('main_colour') || urlParams.has('text_colour') || urlParams.has('active_colour')) {
 
-    if (urlParams.has('main_colour')) {
-        var sheet = document.createElement('style')
-        sheet.innerHTML = `.gtdb_play_note {background-color: #${urlParams.get('main_colour')}!important;}`;
-        sheet.innerHTML += `.gtdb_btn {background-color: #${urlParams.get('main_colour')}!important;}`;
-        sheet.innerHTML += `#gtdb_sound_select {border-color: #${urlParams.get('main_colour')}!important;}`;
-        sheet.innerHTML += `.gtdb_btn_plug {background-color: #${urlParams.get('main_colour')}!important;}`;
-        document.body.appendChild(sheet);
-    }
+if (urlParams.has('background_colour')) {
+    var sheet0 = document.createElement('style')
+    sheet0.innerHTML = `body {background-color: #${urlParams.get('background_colour')}!important;}`;
+    document.body.appendChild(sheet0);
+}
+if (urlParams.has('main_colour')) {
+    var sheet = document.createElement('style')
+    sheet.innerHTML = `.gtdb_play_note {background-color: #${urlParams.get('main_colour')}!important;}`;
+    sheet.innerHTML += `.gtdb_btn {background-color: #${urlParams.get('main_colour')}!important;}`;
+    sheet.innerHTML += `#gtdb_sound_select {border-color: #${urlParams.get('main_colour')}!important;background-color: #${urlParams.get('main_colour')}!important;}`;
+    sheet.innerHTML += `.gtdb_btn_plug {background-color: #${urlParams.get('main_colour')}!important;}`;
+    document.body.appendChild(sheet);
+}
 
-    if (urlParams.has('text_colour')) {
-        var sheet2 = document.createElement('style')
-        sheet2.innerHTML = `.gtdb_play_note {color: #${urlParams.get('text_colour')}!important;}`;
-        sheet2.innerHTML += `.gtdb_btn {color: #${urlParams.get('text_colour')}!important;}`;
-        sheet2.innerHTML += `span.gtdb_stop {background-color: #${urlParams.get('text_colour')}!important;}`;
-        sheet2.innerHTML += `.gtdb_btn_plug {color: #${urlParams.get('text_colour')}!important;}`;
-        document.body.appendChild(sheet2);
-    }
+if (urlParams.has('text_colour')) {
+    var sheet2 = document.createElement('style')
+    sheet2.innerHTML = `.gtdb_play_note {color: #${urlParams.get('text_colour')}!important;}`;
+    sheet2.innerHTML += `.gtdb_btn {color: #${urlParams.get('text_colour')}!important;}`;
+    sheet2.innerHTML += `span.gtdb_stop {background-color: #${urlParams.get('text_colour')}!important;}`;
+    sheet2.innerHTML += `.gtdb_btn_plug {color: #${urlParams.get('text_colour')}!important;}`;
+    document.body.appendChild(sheet2);
+}
 
-    if (urlParams.has('active_colour')) {
-        var sheet3 = document.createElement('style')
-        sheet3.innerHTML = `.gtdb_play_note.gtdb_active {background-color: #${urlParams.get('active_colour')}!important;}`;
-        sheet3.innerHTML += `div.gtdb_btn.gtdb_active {background-color: #${urlParams.get('active_colour')}!important;}`;
-        document.body.appendChild(sheet3);
-    }
+if (urlParams.has('active_colour')) {
+    var sheet3 = document.createElement('style')
+    sheet3.innerHTML = `.gtdb_play_note.gtdb_active {background-color: #${urlParams.get('active_colour')}!important;}`;
+    sheet3.innerHTML += `div.gtdb_btn.gtdb_active {background-color: #${urlParams.get('active_colour')}!important;}`;
+    document.body.appendChild(sheet3);
+}
 
-    if (urlParams.has('htz')) {
-        // document.querySelector('#gtdb_htz432_wrap').classList.toggle('gtdb_active')
-        // document.querySelector('#gtdb_htz440_wrap').classList.toggle('gtdb_active')
-        let htzBtns = document.querySelectorAll('.gtdb_htz_btn')
-        for (var i3 = 0, len = htzBtns.length; i3 < len; i3++) {
-            gtdbHTZ = htzBtns[i3].textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()
-            let gtdbSource = document.getElementsByTagName('source');
-            for (var i4 = 0, len4 = gtdbSource.length; i4 < len4; i4++) {
-                if (urlParams.get('htz') == '432') {
-                    document.querySelector('#gtdb_htz432_wrap').classList.add('gtdb_active')
-                    document.querySelector('#gtdb_htz440_wrap').classList.remove('gtdb_active')
-                    gtdbSource[i4].src = gtdbSource[i4].src.replace('/440/', '/432/')
-                } else {
-                    document.querySelector('#gtdb_htz432_wrap').classList.remove('gtdb_active')
-                    document.querySelector('#gtdb_htz440_wrap').classList.add('gtdb_active')
-                    gtdbSource[i4].src = gtdbSource[i4].src.replace('/432/', '/440/')
-                }
+if (urlParams.has('htz')) {
+    // document.querySelector('#gtdb_htz432_wrap').classList.toggle('gtdb_active')
+    // document.querySelector('#gtdb_htz440_wrap').classList.toggle('gtdb_active')
+    let htzBtns = document.querySelectorAll('.gtdb_htz_btn')
+    for (var i3 = 0, len = htzBtns.length; i3 < len; i3++) {
+        gtdbHTZ = htzBtns[i3].textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()
+        let gtdbSource = document.getElementsByTagName('source');
+        for (var i4 = 0, len4 = gtdbSource.length; i4 < len4; i4++) {
+            if (urlParams.get('htz') == '432') {
+                document.querySelector('#gtdb_htz432_wrap').classList.add('gtdb_active')
+                document.querySelector('#gtdb_htz440_wrap').classList.remove('gtdb_active')
+                gtdbSource[i4].src = gtdbSource[i4].src.replace('/440/', '/432/')
+            } else {
+                document.querySelector('#gtdb_htz432_wrap').classList.remove('gtdb_active')
+                document.querySelector('#gtdb_htz440_wrap').classList.add('gtdb_active')
+                gtdbSource[i4].src = gtdbSource[i4].src.replace('/432/', '/440/')
             }
-
         }
+
     }
 }
+
